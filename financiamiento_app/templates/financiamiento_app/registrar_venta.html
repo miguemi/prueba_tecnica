@@ -1,0 +1,31 @@
+<!-- financiamientos_app/templates/registrar_venta.html -->
+
+<h2>Registrar Venta</h2>
+
+<form method="post" action="{% url 'registrar_venta' %}">
+    {% csrf_token %}
+    <label for="cliente">Cliente:</label>
+    <select name="cliente" required>
+        {% for cliente in clientes %}
+            <option value="{{ cliente.id }}">{{ cliente.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="proveedor">Proveedor:</label>
+    <select name="proveedor" required>
+        {% for proveedor in proveedores %}
+            <option value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="fecha_venta">Fecha de Venta:</label>
+    <input type="date" name="fecha_venta" required>
+
+    <label for="monto_venta">Monto de Venta:</label>
+    <input type="text" name="monto_venta" required>
+
+    <label for="vehiculo_adquirido">Vehículo Adquirido:</label>
+    <input type="text" name="vehiculo_adquirido" required>
+
+    <button type="submit">Registrar Venta</button>
+</form>

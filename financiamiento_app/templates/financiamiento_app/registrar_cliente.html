@@ -1,0 +1,14 @@
+<!-- financiamientos_app/templates/registrar_cliente.html -->
+
+<h2>Registrar Cliente</h2>
+
+<form method="post" action="{% url 'registrar_cliente' %}">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" required>
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" name="direccion" required >
+
+    <button type="submit">Registrar Cliente</button>
+</form>

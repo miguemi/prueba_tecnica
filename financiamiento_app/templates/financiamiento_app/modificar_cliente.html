@@ -1,0 +1,14 @@
+<!-- financiamientos_app/templates/modificar_cliente.html -->
+
+<h2>Modificar Cliente</h2>
+
+<form method="post" action="{% url 'modificar_cliente' id=cliente.id %}">
+    {% csrf_token %}
+    <label for="nombre">Nuevo Nombre:</label>
+    <input type="text" name="nombre" value="{{ cliente.nombre }}" required>
+
+    <label for="direccion">Nueva Dirección:</label>
+    <textarea name="direccion" required>{{ cliente.direccion }}</textarea>
+
+    <button type="submit">Guardar Cambios</button>
+</form>

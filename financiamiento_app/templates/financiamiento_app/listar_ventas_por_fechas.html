@@ -1,0 +1,39 @@
+<!-- financiamientos_app/templates/listar_ventas_por_fechas.html -->
+
+<h2>Listar Ventas por Fechas</h2>
+
+<form method="post" action="{% url 'listar_ventas_por_fechas' %}">
+    {% csrf_token %}
+    <label for="fecha_inicio">Fecha de Inicio:</label>
+    <input type="date" name="fecha_inicio" required>
+
+    <label for="fecha_fin">Fecha de Fin:</label>
+    <input type="date" name="fecha_fin" required>
+
+    <button type="submit">Filtrar</button>
+</form>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Cliente</th>
+            <th>Fecha de Venta</th>
+            <th>Monto de Venta</th>
+            <th>Vehículo Adquirido</th>
+            <th>Proveedor</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for venta in ventas %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ venta.cliente.nombre }}</td>
+                <td>{{ venta.fecha_venta }}</td>
+                <td>{{ venta.monto_venta }}</td>
+                <td>{{ venta.vehiculo_adquirido }}</td>
+                <td>{{ venta.proveedor.nombre }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+<!-- financiamientos_app/templates/registrar_proveedor.html -->
+
+<h2>Registrar Proveedor</h2>
+
+<form method="post" action="{% url 'registrar_proveedor' %}">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" required>
+
+    <button type="submit">Registrar Proveedor</button>
+</form>

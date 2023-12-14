@@ -1,0 +1,14 @@
+<!-- financiamientos_app/templates/filtro_fechas.html -->
+
+<h2>Filtrar Ventas por Fechas</h2>
+
+<form method="post" action="{% url 'listar_ventas_por_fechas' %}">
+    {% csrf_token %}
+    <label for="fecha_inicio">Fecha de Inicio:</label>
+    <input type="date" name="fecha_inicio" required>
+
+    <label for="fecha_fin">Fecha de Fin:</label>
+    <input type="date" name="fecha_fin" required>
+
+    <button type="submit">Filtrar</button>
+</form>
